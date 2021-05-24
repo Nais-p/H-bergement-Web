@@ -1,5 +1,5 @@
 # Hébergement-Web
-### Mettre en place une architecture web utilisable en production.Découverte du fonctionnement du système de containers et la fabrication d'images. Utiliser les volumes Docker pour faire en sorte que les données soient persistantes.
+
 
 # Install Docker
 
