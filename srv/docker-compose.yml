@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+   db:
+     build: /srv/mariadb
+     image : "database-debian:1.0"
+     restart: always
+     container_name: database
+     volumes:
+      - Maria:/var/lib/mysql
+
+   wp:
+     build: /srv/wordpress
+     image : "wordpress-debian:1.0"
+     ports:
+      - "80:80"
+     restart: always
+     container_name: wordpress
+     #volumes:
+     # - Wordpress:/var/www/html
+
+   nginx:
+    build: /srv/nginx
+    image : "nginx-debian:1.0"
+    ports:
+      - "9000:9000"
+    restart: always
+    container_name: nginx
+    volumes:
+     - "./nginx/static:/usr/share/nginx/html:ro"
+
+#traefik:
+    #build: /srv/traefik
+    #image : "traefik-debian:1.0"
+    #ports:
+      #- "8080:8080"
+    #restart: always
+    #container_name: traefik
+#    volumes:
+#     - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+ Maria:
+ Nginx:
